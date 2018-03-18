@@ -2,6 +2,7 @@
 xs178:e20bef23b973	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-09T07:08:13.087527851Z	running	[u'0.0.0.0:84->80/tcp']	/nginx-4
 xs178:956e540daf27	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-09T02:26:27.733392154Z	running	[u'0.0.0.0:81->80/tcp']	/nginx-1
 xs176:6d199cd893c1	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-08T01:19:27.342850087Z	running	[u'0.0.0.0:83->80/tcp']	/nginx-3
+xs176:bff826312889	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-07T23:47:59.603680055Z	running	[u'0.0.0.0:81->80/tcp']	/nginx-1
 None
 Success restart container xs178:nginx-1
 Cmd exec success

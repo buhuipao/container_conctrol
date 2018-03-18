@@ -16,6 +16,7 @@ CLIENT_TIMEOUT = 10
 CLIENT_VERSION = "auto"
 CONTAINER_OPTIONS = ["stop", "remove", "start", "restart", "stats", "top"]
 IP_A = "ip a"
+# TC_NOT_FOUND_ERR = "RTNETLINK answers: No such file or directory\n"
 
 
 class DockerCtl(object):
@@ -29,7 +30,7 @@ class DockerCtl(object):
         self.__sshs = {}
         # 网络控制模板
         self.__net_control = {
-            "clear": "wondershaper clear {0}",
+            "clear": "tc qdisc del dev {0} root || wondershaper clear {0}",
             "loss": "tc qdisc add dev {0} root netem loss {1}",
             "delay": "tc qdisc add dev {0} root netem delay {1}",
             "duplicate": "tc qdisc add dev {0} root netem duplicate {1}",
@@ -217,6 +218,7 @@ class DockerCtl(object):
         return self.__nodes[hostname_id[0]]["url"].split("//")[-1].split(":")[0]
 
     def net_control(self, id_or_name, option, args):
+        # 容器网络控制的执行入口
         host_ip = self.find_container_host_ip(id_or_name)
         if option not in self.__net_control:
             print(
@@ -233,7 +235,8 @@ class DockerCtl(object):
         try:
             for cmd in (cmd1, cmd2):
                 stdin, stdout, stderr = self.exec_cmd(host_ip, cmd)
-                if stderr.readlines():
+                # 如果是清除网络控制命令则忽略错误
+                if cmd.find("wondershaper clear") == -1 and stderr.readlines():
                     print(stderr.readlines())
             print("{0} {1} --> {2} success".format(option, args, id_or_name))
         except Exception as e:
