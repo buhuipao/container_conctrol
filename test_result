@@ -1,0 +1,85 @@
+]0;IPython: chenhua/container_conctrolxs178:66f5a2259c9b	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-09T07:09:48.10842079Z	running	[u'0.0.0.0:85->80/tcp']	/nginx-5
+xs178:e20bef23b973	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-09T07:08:13.087527851Z	running	[u'0.0.0.0:84->80/tcp']	/nginx-4
+xs178:956e540daf27	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-09T02:26:27.733392154Z	running	[u'0.0.0.0:81->80/tcp']	/nginx-1
+xs176:6d199cd893c1	nginx:alpine	[u'nginx', u'-g', u'daemon off;']	2018-02-08T01:19:27.342850087Z	running	[u'0.0.0.0:83->80/tcp']	/nginx-3
+None
+Success restart container xs178:nginx-1
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+Connected 192.168.245.137 success
+clear  --> xs176:nginx-3 success
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+loss 30% --> xs176:nginx-3 success
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+retrans 20 --> xs176:nginx-3 success
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+delay 100ms 10ms --> xs176:nginx-3 success
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+duplicate 20% --> xs176:nginx-3 success
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+limit 500 400 --> xs176:nginx-3 success
+Warnnig: invaild net_control option invaild_option
+Cmd exec success
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+20: eth0@if21: <BROADCAST,MULTICAST,UP,LOWER_UP,M-DOWN> mtu 1500 qdisc noqueue state UP 
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+
+corrupt 20% --> xs176:nginx-3 success
