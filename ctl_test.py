@@ -28,6 +28,13 @@ def test_OPTION():
     ctl.OPTION("stats", "xs178:nginx-1")
 
 
+def test_RUNCMD():
+    # ls, pwd
+    ctl.RUNCMD("xs178:nginx-4", "ls -al /root")
+    ctl.RUNCMD("xs178:nginx-4", ["cd", "/tmp", "&&", "pwd", "&&", "ls"])
+    ctl.RUNCMD("xs178:nginx-4", ["eth"])
+
+
 def main():
     test_PS()
     test_OPTION()
