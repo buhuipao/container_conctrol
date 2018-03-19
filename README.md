@@ -1,5 +1,12 @@
 ### 利用docker-py SDK实现简单多主机容器控制
 
+#### 使用
+```
+	chmod a+x Docker.py
+	./Docker.py ps -a
+	...
+```
+
 #### 初始化工作：
 	0. 查资料理思路
 	1. 安装虚拟机(我用的之前自己测rabbitmq的ubuntu14.04)
