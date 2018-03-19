@@ -11,12 +11,15 @@
 	# 创建运行容器, 还可以加--auto_remove参数
 	./Docker.py run --host=xs178 --image=nginx:alpine --detach --name=nginx-8 --port="80/tcp:83,443/tcp:448"
 
-	# 重启容器
+	# 操作容器, 支持stop, start, top, stats, restart
 	./Docker.py restart --id="xs178:nginx-8"
 
 	# 执行简单命令
 	./Docker.py exec --id="xs178:nginx-8" --cmd="ls"
 
+	# 控制指定容器网络，支持: clear, loss, delay, duplicate, corrupt, retrans, rate
+	# 分别表示: 清除限制，丢包，延迟, 重复, 坏包, 重发, 限速
+	# 参数格式: clear无参数，限速为: "1000 100", 延迟为: "100ms", 其余均为: "10%" 类似
 	# 容器限速: 下载500kbit, 上传300kbit
 	./Docker.py net --id="xs178:nginx-8" --policy=rate --value="500 300"
 

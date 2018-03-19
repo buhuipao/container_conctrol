@@ -38,7 +38,7 @@ class DockerCtl(object):
             "retrans": "tc qdisc add dev {0} root netem delay 10ms reorder {1}",
             # netcard，down, upload
             "rate": "wondershaper {0} {1}"}
-        #  "tc qdisc add dev {0} root tbf rate {1}kbit latency 50ms burst {2}"
+        # "tc qdisc add dev {0} root tbf rate {1}kbit latency 50ms burst {2}"
 
         self.__load_config()
         self.__prepare_clients()
