@@ -10,6 +10,7 @@ import argparse
 import sys
 from container_ctl import DockerCtl
 import container_ctl
+from ipdb import set_trace
 
 
 def parse_args():
@@ -42,7 +43,7 @@ def parse_args():
     parser.add_argument(
         '--command', required=False, help='run a container with cmd')
     parser.add_argument(
-        '--port', required=False,
+        '--ports', required=False,
         help='expose ports, <container_port>/<protocol>:<host_port>,<conta...')
 
     parser.add_argument(
@@ -85,7 +86,6 @@ def parse_args():
     parser.add_argument(
         '--value', required=False,
         help='like [20%, 100ms 10ms, 800 400] depend on your select policy')
-
     args = parser.parse_args()
     return args
 
@@ -102,6 +102,14 @@ def main():
     if option == "ps":
         ctl.PS(show_all=args.a, last=args.l)
     elif option == "run":
+        # 先处理端口映射参数
+        if kwargs["ports"]:
+            ports = {}
+            for port in kwargs["ports"].split(","):
+                c, h = port.split(':')
+                ports[c] = h
+        kwargs["ports"] = ports
+
         host, image, command = args.host, args.image, args.command
         map(lambda i: kwargs.pop(i),
             set(["option", "host", "image", "command"] + empty_args))

@@ -14,7 +14,7 @@ from ipdb import set_trace
 
 CLIENT_TIMEOUT = 10
 CLIENT_VERSION = "auto"
-CONTAINER_OPTIONS = ["stop", "remove", "start", "restart", "stats", "top"]
+CONTAINER_OPTIONS = ["stop", "rm", "start", "restart", "stats", "top", "remove"]
 IP_A = "ip a"
 # TC_NOT_FOUND_ERR = "RTNETLINK answers: No such file or directory\n"
 
@@ -130,11 +130,11 @@ class DockerCtl(object):
             return dest[0]
 
     def OPTION(self, method, id_or_name, **kwargs):
-        if method == "rm":
-            method = "remove"
         if method not in CONTAINER_OPTIONS:
             print("Warnning: unsupported method")
             sys.exit(0)
+        if method == "rm":
+            method = "remove"
         dest = self.find_container(id_or_name)
         operate = getattr(dest, method)
         try:
